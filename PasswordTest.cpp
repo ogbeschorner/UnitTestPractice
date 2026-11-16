@@ -20,3 +20,18 @@ TEST(PasswordTest, single_letter_password)
 	int actual = my_password.count_leading_characters("Z");
 	ASSERT_EQ(1, actual);
 }
+TEST(PasswordTest, has_mixed_case){
+	Password my_password;
+	bool actual= my_password.has_mixed_case("AbCd");
+	ASSERT_TRUE(actual);
+}
+TEST(PasswordTest, all_upper){
+	Password my_password;
+	bool actual=my_password.has_mixed_case("AAAA");
+	ASSERT_FALSE(actual);
+}
+TEST(PasswordTest, all_lower){
+	Password my_password;
+	bool actual=my_password.has_mixed_case("oooo");
+	ASSERT_FALSE(actual);
+}
